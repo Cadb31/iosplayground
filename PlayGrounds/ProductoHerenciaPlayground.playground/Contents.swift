@@ -37,6 +37,12 @@ class Libro: Producto{
         super.init(marca: marca, precio: precio)
     }
     
+    convenience init(marca: String){
+    
+        self.init(marca: marca, precio: 0.0, anioPublicacion: 2000)
+    
+    }
+    
     override func calcularDescuento(porcentajeDescuento: Double) -> Double{
         //return super.calcularDescuento(porcentajeDescuento: porcentajeDescuento)
         return (precio * porcentajeDescuento / 100)
@@ -51,4 +57,12 @@ libro.marca
 libro.precio
 libro.calcularDescuento(porcentajeDescuento: 20)
 libro.precio
+
+var libroNuevo = Libro(marca: "Pruebas Mil")
+
+libroNuevo.anioPublicacion
+libroNuevo.marca
+libroNuevo.precio
+libroNuevo.calcularDescuento(porcentajeDescuento: 20)
+
 
