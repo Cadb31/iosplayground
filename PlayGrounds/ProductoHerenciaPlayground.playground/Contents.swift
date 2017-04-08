@@ -1,6 +1,4 @@
 //: Playground - noun: Producto Herencia
-
-
 import UIKit
 
 class Producto{
@@ -26,14 +24,19 @@ enum Seccion{
     init() {
         self = .Introduccion
     }
-    
 }
 
 
 class Libro: Producto{
 
     var seccion = Seccion()
+    var anioPublicacion: Int
 
+    init(marca: String, precio: Double, anioPublicacion: Int) {
+        self.anioPublicacion = anioPublicacion
+        super.init(marca: marca, precio: precio)
+    }
+    
     override func calcularDescuento(porcentajeDescuento: Double) -> Double{
         //return super.calcularDescuento(porcentajeDescuento: porcentajeDescuento)
         return (precio * porcentajeDescuento / 100)
@@ -42,7 +45,7 @@ class Libro: Producto{
 }
 
 
-var libro = Libro(marca: "Los miserables", precio: 200)
+var libro = Libro(marca: "Los miserables", precio: 200, anioPublicacion: 1990)
 
 libro.marca
 libro.precio
