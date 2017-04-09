@@ -31,6 +31,25 @@ class Libro: Producto{
 
     var seccion = Seccion()
     var anioPublicacion: Int
+    
+    var paginas = 1000
+    var palabrasPagina = 60
+    var contieneFormatoDigital: Bool?
+    
+    /*
+    var numeroPalabras: Int{
+        return paginas * palabrasPagina
+    }*/
+    
+    var numeroPalabras: Int{
+        get{
+            return paginas * palabrasPagina
+        }
+        set{
+            paginas = newValue
+            palabrasPagina = newValue
+        }
+    }
 
     init(marca: String, precio: Double, anioPublicacion: Int) {
         self.anioPublicacion = anioPublicacion
@@ -65,4 +84,12 @@ libroNuevo.marca
 libroNuevo.precio
 libroNuevo.calcularDescuento(porcentajeDescuento: 20)
 
+libroNuevo.numeroPalabras
+libroNuevo.contieneFormatoDigital = true
+
+if let formatoDigital = libroNuevo.contieneFormatoDigital {
+    if (formatoDigital){
+        print("Contiene formato digital")
+    }
+}
 
